@@ -71,13 +71,6 @@ fn grow(builder: &mut MessageBuilder, from_user: &User) {
 }
 
 fn grow_for(builder: &mut MessageBuilder, from_user: &User, to_users: &[&User]) {
-    builder.push_text(&from_user.first_name);
-    if let Some(last_name) = &from_user.last_name {
-        builder.push_text(" ");
-        builder.push_text(last_name);
-    }
-    builder.push_text(" 为 ");
-
     let names = to_users
         .iter()
         .map(|user| {
@@ -89,6 +82,18 @@ fn grow_for(builder: &mut MessageBuilder, from_user: &User, to_users: &[&User]) 
             name
         })
         .collect_vec();
+
+    if names.is_empty() {
+        grow(builder, from_user);
+        return;
+    }
+
+    builder.push_text(&from_user.first_name);
+    if let Some(last_name) = &from_user.last_name {
+        builder.push_text(" ");
+        builder.push_text(last_name);
+    }
+    builder.push_text(" 为 ");
 
     builder.push_text(&names.join("、"));
 
