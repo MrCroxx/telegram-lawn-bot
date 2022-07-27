@@ -167,8 +167,6 @@ async fn main() -> Result<()> {
         let re = Regex::new(r"(草|cao|焯|🌱|🌿|☘️|🍀|艹)").unwrap();
         async move {
             if let Some(text) = message.text() {
-                println!("{:#?}", message);
-
                 if re.is_match(text) {
                     let mut builder = MessageBuilder::default();
 
