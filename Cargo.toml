@@ -1,0 +1,18 @@
+[package]
+name = "telegram-lawn-bot"
+version = "0.1.0"
+edition = "2021"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = { version = "3", features = ["derive"] }
+itertools = "0.10.3"
+log = "0.4"
+pretty_env_logger = "0.4"
+regex = "1.5"
+reqwest = { version = "0.11", features = ["json"] }
+serde = { version = "1.0", features = ["derive"] }
+teloxide = { version = "0.10", features = ["macros", "auto-send"] }
+thiserror = "1.0"
+tokio = { version = "1.20.1", features = ["full"] }
+toml = "0.5"
