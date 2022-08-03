@@ -19,7 +19,6 @@ type Result<T> = std::result::Result<T, Box<dyn std::error::Error + Send + Sync>
 struct Secret {
     token: String,
     lawn_chat_id: String,
-    channel_url: String,
 }
 
 #[derive(Parser, Debug)]
