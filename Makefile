@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-.PHONY: proto
+.PHONY: fmt fmt_check clean check test
 
 fmt:
 	cargo sort -w && cargo fmt --all && cargo clippy --all-targets --all-features && cargo clippy --all-targets
